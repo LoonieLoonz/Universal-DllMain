@@ -1,0 +1,152 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 15,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-base",
+      "hidden": true,
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "BUILD_SHARED": "ON"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "windows-x64-crt-release",
+      "displayName": "Windows x64 with CRT (Release)",
+      "description": "Release build with C Runtime Library for x64",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "USE_CRT": "ON",
+        "ENABLE_EXCEPTIONS": "OFF"
+      }
+    },
+    {
+      "name": "windows-x64-nocrt-release",
+      "displayName": "Windows x64 without CRT (Release)",
+      "description": "Release build without C Runtime Library for x64",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "USE_CRT": "OFF",
+        "ENABLE_EXCEPTIONS": "OFF"
+      }
+    },
+    {
+      "name": "windows-x86-crt-release",
+      "displayName": "Windows x86 with CRT (Release)",
+      "description": "Release build with C Runtime Library for x86",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "Win32",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "USE_CRT": "ON",
+        "ENABLE_EXCEPTIONS": "OFF"
+      }
+    },
+    {
+      "name": "windows-x86-nocrt-release",
+      "displayName": "Windows x86 without CRT (Release)",
+      "description": "Release build without C Runtime Library for x86",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "Win32",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "USE_CRT": "OFF",
+        "ENABLE_EXCEPTIONS": "OFF"
+      }
+    },
+    {
+      "name": "windows-x64-crt-debug",
+      "displayName": "Windows x64 with CRT (Debug)",
+      "description": "Debug build with C Runtime Library for x64",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "USE_CRT": "ON",
+        "ENABLE_EXCEPTIONS": "OFF"
+      }
+    },
+    {
+      "name": "windows-x64-nocrt-debug",
+      "displayName": "Windows x64 without CRT (Debug)",
+      "description": "Debug build without C Runtime Library for x64",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "USE_CRT": "OFF",
+        "ENABLE_EXCEPTIONS": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-x64-crt-release-build",
+      "displayName": "Build Release x64 with CRT",
+      "configurePreset": "windows-x64-crt-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-x64-nocrt-release-build",
+      "displayName": "Build Release x64 without CRT",
+      "configurePreset": "windows-x64-nocrt-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-x86-crt-release-build",
+      "displayName": "Build Release x86 with CRT",
+      "configurePreset": "windows-x86-crt-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-x86-nocrt-release-build",
+      "displayName": "Build Release x86 without CRT",
+      "configurePreset": "windows-x86-nocrt-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-x64-crt-debug-build",
+      "displayName": "Build Debug x64 with CRT",
+      "configurePreset": "windows-x64-crt-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "windows-x64-nocrt-debug-build",
+      "displayName": "Build Debug x64 without CRT",
+      "configurePreset": "windows-x64-nocrt-debug",
+      "configuration": "Debug"
+    }
+  ]
+}
