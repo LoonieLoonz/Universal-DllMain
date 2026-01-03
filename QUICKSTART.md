@@ -143,7 +143,6 @@ build.bat --clean
 2. **For stealth**: Use Release + No-CRT build  
 3. **For debugging**: Use Debug + CRT build  
 4. **Test both**: x86 and x64 architectures  
-5. **Read SKILL.md files**: For additional patterns and best practices  
 
 ---
 
